@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crear Usuario</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body {
+			font-family: Arial;
+			background-color: lightblue;
+		}
+		#atras {
+			border-radius: 500px;
+			width: 35px;
+			height: 35px;
+		}
+		.inputs {
+			border:solid 1px #E6E6E6;
+			padding: 10px;
+			width: 200px;
+			height: 15px;
+			border-radius: 20px;
+		}
+		.inputs:focus{
+			border-color: black;
+			padding: 10px;
+		}
+
+		.botones {
+			background-color: #E6E6E6;
+		    border: none;
+		    color: black;
+		    padding: 10px 12px;
+		    font-size: 18px;
+		    border-radius: 10px;
+		    font-family: Arial;
+		    cursor: pointer;
+		    border: 0.5px solid #000000;
+		}
+		.botones:hover {
+			background-color: #BDBDBD;
+		}
+		table {
+			margin: auto;
+			width: 280px;
+			max-width: 500px;
+			background: #E6E6E6;
+			padding: 30px;
+			border: 1px solid rgba(0,0,0,0.5);
+			border-radius: 20px;
+		}
+		img {
+			size: 20px 30px;
+		}
+		
+	</style>
+</head>
+<body>
+	{% block body %}
+	<a href="{{ url_for('pagPrincipal') }}"><img src="{{ url_for('static', filename='atras.png') }}" id="atras"></a>
+		<center>
+			{{ msj }}
+			<table>
+				<form action="{{ url_for('crearUsuario2') }}" method="POST">
+					<tr>
+						<td>Nombre</td></tr>
+						<tr><td><input type="text" name="Nombre" class="inputs" placeholder="&#128273; Escribe tu nombre..."  required></td>
+					</tr>
+					<tr>
+						<td>Apellido paterno</td></tr>
+						<tr><td><input type="text" name="Apellido" class="inputs" placeholder="&#128273; Escribe tu primer apellido..." required></td>
+					</tr>
+					<tr>
+						<td>Apellido materno</td></tr>
+						<tr><td><input type="text" name="Apellido2" class="inputs" placeholder="&#128273; Escribe tu segundo apellido..." required></td>
+					</tr>
+					<tr>
+						<td>Nombre de usuario</td>
+					</tr>
+					<tr>
+						<td><input type="text" name="Usuario" class="inputs" placeholder="&#128273; Escribe tu usuario..."  required></td>
+					</tr>
+					<tr>
+						<td>Contraseña</td>
+					</tr>
+					<tr>
+						<td><input type="password" name="Contraseña" class="inputs" placeholder="&#128273; Escribe tu contraseña"  required></td>
+					</tr>
+					<tr>
+						<td>
+							Ingrese las aerolineas favoritas
+							<select name="seleccion">
+								<option>AA</option>
+								<option>TW</option>
+								<option>DL</option>
+								<option>UA</option>
+								<option>YV</option>
+								<option>US</option>
+								<option>NW</option>
+								<option>CO</option>
+								<option>WN</option>
+								<option>HP</option>
+								<option>PA</option>
+							</select>
+						</td>
+
+					</tr>
+					<tr>
+						<td><input type="submit" name="boton1" value="Registrarse" class="botones"></td>
+					</tr>
+				</form>
+			</table>
+		</center>
+	{% endblock %}
+</body>
+</html>

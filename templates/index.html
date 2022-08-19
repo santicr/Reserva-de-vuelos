@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Página de vuelos</title>
+	<meta charset="UTF-8">
+<style type="text/css">
+	body {
+		background-repeat: no-repeat;
+		background-size: 1366px 768px;
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: lightblue;
+
+	}
+	form {
+		
+	}
+	.boton {
+		background-color: gray;
+	    border: 2px solid #000000;
+	    color: black;
+	    padding: 15px 22px;
+	    font-size: 18px;
+	    border-radius: 23px;
+	    font-family: Arial , Helvetica , sans-serif;
+	    cursor: pointer;
+
+	}
+	#crearusuario {
+		padding: 15px 30px;
+	}
+	#crearusuario2 {
+		width: 155px;
+	}
+
+</style>
+</head>
+<body>
+	<center>
+		<img src="{{ url_for('static', filename='bienvenido.png') }}"><br>
+		<img src="{{ url_for('static', filename='logo.png') }}">
+		{% block body %}
+		<table>
+			<form action="{{ url_for('iniciarSesion') }}">
+				<tr>
+					<td>
+						<input type="submit" name="inicio" value="Iniciar Sesión" class="boton">
+					</td>
+				</tr>
+			</form>
+			<form action="{{ url_for('crearUsuario') }}">
+				<tr>
+					<td>
+						<input id="crearusuario" type="submit" name="registro" value="Registrarse" class="boton">
+					</td>
+				</tr>
+			</form>
+			<form action="{{ url_for('perfil') }}">
+				<tr>
+					<td>
+						<input id="crearusuario2" type="submit" name="reservar" value="Reservar" class="boton">
+					</td>
+				</tr>
+			</form>	
+		</table>
+		{% endblock %}
+	</center>
+</body>
+</html>

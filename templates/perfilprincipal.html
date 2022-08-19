@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Perfil principal</title>
+	<style type="text/css">
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: lightblue;
+		}
+		table {
+		    border-collapse: collapse;
+		    width: 100%;
+		}
+		th {
+			background-color: #BDBDBD;
+		}
+		td{
+			background-color: #E6E6E6;
+		}
+
+		td, th {
+		    border: 1px solid #dddddd;
+		    text-align: left;
+		    padding: 8px;
+		}
+		#imagen {
+			width: 30px;
+			height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<a href="{{ url_for('pagPrincipal') }}"><img src="{{ url_for('static',filename='cerrar.png') }}" id="imagen"></a>
+	<table>
+		<tr>
+			<th>Usuario</th>
+			<th>Aerolínea</th>
+			<th>Número de vuelo</th>
+			<th>Ciudad de salida</th>
+			<th>Hora de partida</th>
+			<th>Aeropuerto de llegada</th>
+			<th>Hora de llegada</th>
+			<th>Comida</th>
+			<th>Escalas</th>
+			<th>Avión</th>
+		</tr>
+		<tr>
+	{% for linea in lista %}
+		<tr>
+		{% for i in range(0,10) %}
+			<td>{{ linea[i] }}</td>
+		{% endfor %}
+		</tr>
+	{% endfor %}
+		</tr>
+	</table>
+</body>
+</html>

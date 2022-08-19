@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Iniciar sesión</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body {
+			font-family: Arial;
+			background-color: lightblue;
+		}
+		#atras {
+			border-radius: 500px;
+			width: 35px;
+			height: 35px;
+		}
+		.inputs {
+			border: solid 1px #E6E6E6;
+			padding: 10px;
+			width: 200px;
+			height: 15px;
+			border-radius: 20px;
+		}
+		.inputs:focus{
+			border-color: black;
+			padding: 10px;
+		}
+
+		.botones {
+			background-color: #E6E6E6;
+		    border: none;
+		    color: black;
+		    padding: 10px 12px;
+		    font-size: 18px;
+		    border-radius: 10px;
+		    font-family: Arial;
+		    cursor: pointer;
+		    border: 0.5px solid #000000;
+		}
+		.botones:hover {
+			background-color: #BDBDBD;
+		}
+		form {
+			margin: auto;
+			width: 280px;
+			max-width: 500px;
+			background: #E6E6E6;
+			padding: 30px;
+			border: 1px solid rgba(0,0,0,0.5);
+			border-radius: 20px;
+		}
+		img {
+			size: 20px 30px;
+		}
+		
+	</style>
+</head>
+<body>
+	{% block body %}
+	<a href="{{ url_for('pagPrincipal') }}"><img src="{{ url_for('static', filename='atras.png') }}" id="atras"></a>
+	<center>
+		<img src="{{ url_for('static', filename = 'perfil.png') }}" height="150" width="150">
+		<form action="{{ url_for('iniciaSesion2') }}" method="POST">	
+			<table>
+				<tr>
+					<td><strong>Usuario</strong></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="Usuario1" class="inputs" placeholder="Usuario..." required></td>
+				</tr>
+				<tr>
+					<td><strong>Contraseña</strong></td>
+				</tr>
+				<tr>
+					<td><input type="password" name="Contraseña1" class="inputs" placeholder="Contraseña..." required></td>
+				</tr>
+			</table><br><br>
+		<input type="submit" name="Boton2" value="Ingresar" class="botones">
+	</center>
+</form>
+	{% endblock %}
+</body>
+</html>

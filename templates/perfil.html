@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mi perfil</title>
+	<style type="text/css">
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: lightblue;
+	}
+	#este2 {
+		margin: auto;
+		width: 280px;
+		max-width: 500px;
+		background: #E6E6E6;
+		padding: 12px;
+		border: 1px solid rgba(0,0,0,0.5);
+		border-radius: 20px;
+	}
+	td {
+		padding: 1px;
+	}
+	.este {
+		border: solid 1px black;
+		padding: 10px;
+		width: 200px;
+		height: 15px;	
+		border-radius: 13px;
+	}
+	#boton {
+		background-color: white;
+		border: none;
+	    color: black;
+	    padding: 10px 12px;
+	    font-size: 18px;
+	    border-radius: 10px;
+	    font-family: Arial;
+	    cursor: pointer;
+	    border: 0.5px solid #000000;
+	}
+	#boton:hover{
+		background-color: #BDBDBD;
+	}
+	</style>
+</head>
+<body>
+		<a href="{{ url_for('iniciarSesion') }}">Iniciar Sesion</a>
+	<form action="{{ url_for('perfil2') }}" method="POST" id="este2">
+		<table>
+			<tr><td>Usuario: </td>
+				<tr><td><input type="text" name="usuario5" class="este"></td></tr>
+			</tr>
+			<tr>
+				<td>Contraseña:</td>
+				<tr><td><input type="password" name="contra" class="este"></td></tr>
+			</tr>
+			<tr>
+				<td>Selecciona la ciudad de salida</td>
+			</tr>
+			<tr>	<td><select name="ciudad1">
+					<option value="ABQ">Albuquerque</option>
+					<option value="ATL">Atlanta</option>
+					<option value="BNA">Nashville</option>
+					<option value="BOS">Boston</option>
+					<option value="DCA">Washington D.C.</option>
+					<option value="DEN">Denver</option>
+					<option value="DFW">Dallas/Fort Worth</option>
+					<option value="DTW">Detroit</option>
+					<option value="HOU">Houston</option>
+					<option value="JFK">New York</option>
+					<option value="LAX">Los Angeles</option>
+					<option value="MIA">Miami</option>
+					<option value="MSP">Minneapolis/St Paul</option>
+					<option value="MSY">New Orleans</option>
+					<option value="ORD">Chicago</option>
+					<option value="PHL">Philadelphia</option>
+					<option value="PHX">Phoenix</option>
+					<option value="PVD">Providence/Newport</option>
+					<option value="RDU">Raleigh/Durham</option>
+					<option value="SEA">Seattle/Tacoma</option>
+					<option value="SFO">San Francisco</option>
+					<option value="STL">St Louis</option>
+					<option value="TPA">Tampa</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Selecciona la ciudad de llegada</td>
+			</tr>
+			<tr>	<td><select name="ciudad2">
+					<option value="ABQ">Albuquerque</option>
+					<option selected value="ATL">Atlanta</option>
+					<option value="BNA">Nashville</option>
+					<option value="BOS">Boston</option>
+					<option value="DCA">Washington D.C.</option>
+					<option name="Denver" value="DEN">Denver</option>
+					<option value="DFW">Dallas/Fort Worth</option>
+					<option value="DTW">Detroit</option>
+					<option value="HOU">Houston</option>
+					<option value="JFK">New York</option>
+					<option value="LAX">Los Angeles</option>
+					<option value="MIA">Miami</option>
+					<option value="MSP">Minneapolis/St Paul</option>
+					<option value="MSY">New Orleans</option>
+					<option value="ORD">Chicago</option>
+					<option value="PHL">Philadelphia</option>
+					<option value="PHX">Phoenix</option>
+					<option value="PVD">Providence/Newport</option>
+					<option value="RDU">Raleigh/Durham</option>
+					<option value="SEA">Seattle/Tacoma</option>
+					<option value="SFO">San Francisco</option>
+					<option value="STL">St Louis</option>
+					<option value="TPA">Tampa</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Selecciona el número de escalas</td>
+			</tr>
+			<tr>
+				<td><select name="escalas">
+					<option>0</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Selecciona tu aerolinea de preferencia</td>
+			<tr>
+				<td><select name="aero">
+					<option>AA</option>
+					<option>TW</option>
+					<option>DL</option>
+					<option>UA</option>
+					<option>YV</option>
+					<option>US</option>
+					<option>NW</option>
+					<option>CO</option>
+					<option>WN</option>
+					<option>HP</option>
+					<option>PA</option>
+					<option>ZK</option>
+				</select></td>
+			</tr>
+			<tr>
+				<center><td><input type="submit" name="" id="boton" value="Reservar"></td></center>
+			</tr>
+		</table>
+				{% for linea in lista %}
+					<p>La aerolínea que escogiste es {{ linea[0] }}</p>
+					<p>El código de la ciudad de salida es {{ linea[2] }}</p>
+					<p>El código de la ciudad de llegada es {{ linea[4] }}</p>
+					<p><strong>Recuerda iniciar sesión para validar la información</strong></p>
+				{% endfor %}
+			</form>
+</body>
+</html>
